@@ -8,7 +8,7 @@ public class Main {
 
         List<City> cities = TSPLibrary.getCitiesFromFile("./burma14.tsp");
         for(City city:cities){
-            System.out.println(city.getName());
+            System.out.println(city.getName() +" " +city.getCordX()+" " +city.getCordY());
         }
     }
 }
