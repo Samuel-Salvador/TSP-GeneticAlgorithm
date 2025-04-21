@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<City> cities = TSPLibrary.getCitiesFromFile("./burma14.tsp");
+        List<City> cities = TSPLibrary.getCitiesFromFile("./bier127.tsp");
         for(City city:cities){
             System.out.println(city.getName() +" " +city.getCordX()+" " +city.getCordY());
         }
