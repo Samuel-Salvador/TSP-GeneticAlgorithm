@@ -1,4 +1,4 @@
-package services;
+package resources;
 
 import entities.City;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TSPLibrary {
+public class TSPFileReader {
 
     public static List<City> getCitiesFromFile(String fileName) {
         List<City> cities = new ArrayList<>();

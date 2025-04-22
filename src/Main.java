@@ -1,14 +1,20 @@
+import entities.Chromosome;
 import entities.City;
-import services.TSPLibrary;
+import entities.Population;
+import resources.TSPFileReader;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        List<City> cities = TSPLibrary.getCitiesFromFile("./bier127.tsp");
-        for(City city:cities){
-            System.out.println(city.getName() +" " +city.getCordX()+" " +city.getCordY());
-        }
+
+        Population.populateFromFile(5,"./tsp-files/burma14.tsp");
+
+
+
+        System.out.println(Population.get().getFirst().getFitness());
     }
 }
