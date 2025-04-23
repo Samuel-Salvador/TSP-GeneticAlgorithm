@@ -21,7 +21,9 @@ public class Population {
 
     public static void populateFromFile( int size, String fileName ){
         Population.size = size;
+
         for( int i=0 ; i<size ; i++ ){
+
             List<City> allCities = TSPFileReader.getCitiesFromFile(fileName);
             Collections.shuffle(allCities);
 
@@ -35,4 +37,5 @@ public class Population {
             chromosome.print();
         }
     }
+
 }

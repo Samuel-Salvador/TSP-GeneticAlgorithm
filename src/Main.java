@@ -4,6 +4,7 @@ import entities.Population;
 import resources.TSPFileReader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,8 +14,9 @@ public class Main {
 
         Population.populateFromFile(5,"./tsp-files/burma14.tsp");
 
-
-
-        System.out.println(Population.get().getFirst().getFitness());
+        for(Chromosome chromosome: Population.get()){
+            chromosome.print();
+            System.out.printf("Fitness = %.4f\n" , chromosome.getFitness());
+        }
     }
 }
