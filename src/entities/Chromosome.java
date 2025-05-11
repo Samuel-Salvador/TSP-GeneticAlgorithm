@@ -1,13 +1,16 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Chromosome {
 
     private List<City> citySequence;
-    private final double distanceTraveled;
-    private final double fitness;
+
+    private double distanceTraveled;
+    private double fitness;
     private double standOutPercent;
+    private boolean selected = false;
 
     public Chromosome( List<City> citySequence) {
         this.citySequence = citySequence;
@@ -28,16 +31,32 @@ public class Chromosome {
         return fitness;
     }
 
+    public void setFitness(double fitness) {
+        this.fitness = fitness;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
     public double getDistanceTraveled() {
         return distanceTraveled;
     }
 
-    public void setStandOutPercent(){
-        this.standOutPercent = ( getFitness() / Population.getFitnessSum() ) * 100;
+    public void setDistanceTraveled(double distanceTraveled) {
+        this.distanceTraveled = distanceTraveled;
     }
 
     public double getStandOutPercent() {
         return standOutPercent;
+    }
+
+    public void setStandOutPercent(){
+        this.standOutPercent = ( getFitness() / Population.getFitnessSum() ) * 100;
     }
 
     public double calculateDistanceTraveled(){
@@ -60,4 +79,12 @@ public class Chromosome {
         }
         System.out.println();
     }
+
+    public void evolve( List<City> newCitySequence ) {
+        setCitySequence(newCitySequence);
+        setDistanceTraveled(calculateDistanceTraveled());
+        setFitness(1 / getDistanceTraveled());
+    }
+
+
 }

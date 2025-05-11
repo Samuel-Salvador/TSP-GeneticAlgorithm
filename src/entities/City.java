@@ -1,6 +1,6 @@
 package entities;
 
-public class City {
+public class City implements Comparable<City> {
 
     private String name;
     private Double coordX, coordY;
@@ -35,4 +35,10 @@ public class City {
     public void setCordY(Double cordY) {
         this.coordY = cordY;
     }
+
+    @Override
+    public int compareTo(City otherCity) {
+        return Integer.parseInt(getName()) - Integer.parseInt(otherCity.getName());
+    }
+
 }
